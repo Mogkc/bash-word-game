@@ -22,6 +22,7 @@ class Word {
                 correct = true;
             }
         });
+        return correct;
     }
 }
 
