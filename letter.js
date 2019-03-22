@@ -9,6 +9,9 @@ class Letter {
     guess(char) {
         if(char.toUpperCase() === this.name.toUpperCase()) {
             this.guessed = true;
+            return true;
+        } else {
+            return false;
         }
     }
 }

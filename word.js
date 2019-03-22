@@ -16,8 +16,11 @@ class Word {
         return toDisplay;
     }
     guess(char) {
+        let correct = false;
         this.letterArray.forEach(letter => {
-            letter.guess(char);
+            if(letter.guess(char) ) {
+                correct = true;
+            }
         });
     }
 }
