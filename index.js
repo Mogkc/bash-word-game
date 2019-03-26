@@ -15,6 +15,8 @@ const isValid = function (input) {
     if (input.length !== 1 || !input.match(/^[a-zA-Z]+$/)) {
         return "Please guess a letter";
     }
+    //Get rid of case sensitivity
+    input = input.toLowerCase();
     //If they retry a letter
     for (let i = 0; i < guesses.length; i++) {
         if (input == guesses[i]) {
@@ -31,8 +33,8 @@ const getGuess = function () {
         name: "guess",
         validate: isValid
     }).then(function (input) {
-        //Add the guess to the array guesses
-        guesses.push(input.guess);
+        //Add the guess to the array guesses, ignoring case
+        guesses.push(input.guess.toLowerCase());
         //Do the guess, and see if it returns true
         if (current.guess(input.guess) === false) {
             allowedFails--;
